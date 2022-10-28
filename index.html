@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="src/makeitpretty.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Nixie+One&family=Quicksand:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/a7be029a69.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="content">
+        <!-- SEARCH BAR -->
+        <form class="form">
+          <input
+            type="search"
+            id="search-city"
+            name="search"
+            placeholder="Search for a City..."
+          />
+          <button id="#search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <button id="#location-button">
+            <i class="fa-solid fa-location-crosshairs"></i>
+          </button>
+          <button><i class="fa-regular fa-star"></i></button>
+        </form>
+
+        <div class="topHalf">
+          <h1 id="city-name">Toronto</h1>
+          <button><i class="fa-regular fa-star"></i></button>
+          <!-- DATE AND TIME -->
+          <h2>Tuesday Oct 18th</h2>
+
+          <div class="container text-center">
+            <div
+              class="row todaysWeather d-flex justify-content-around align-items-center"
+            >
+              <!-- FAKE TEMP C TO F  -->
+              <div class="col">
+                <span class="currentTemp" id="#current-temp">17°</span>
+                <a href="#" id="#celsius-switch">C</a> |
+                <a href="#" id="#fahrenheit-switch">F</a>
+              </div>
+
+              <div class="col">
+                <div class="row">
+                  <div class="col weatherDetails" id="#feels-like">
+                    Feels Like 12°
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col weatherDetails" id="#humidity">
+                    57% Humidity
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col weatherDetails" id="#winds">40Km/H Winds</div>
+                </div>
+              </div>
+
+              <div class="col">
+                <img src="media/SunIcon.svg" alt="Sun behind cloud icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="container text-center">
+          <div class="row forecast">
+            <div class="col forecastDay">
+              Tuesday
+              <div class="row">
+                <div class="col">
+                  <img src="media/SunIcon.svg" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">2° | 12°</div>
+              </div>
+            </div>
+
+            <div class="col forecastDay">
+              Wednesday
+              <div class="row">
+                <div class="col">
+                  <img src="media/sunAndCloudIcon.svg" alt="" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">2° | 12°</div>
+              </div>
+            </div>
+
+            <div class="col forecastDay">
+              Thursday
+              <div class="row">
+                <div class="col">
+                  <img src="media/Cloudy.svg" alt="" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">2° | 12°</div>
+              </div>
+            </div>
+
+            <div class="col forecastDay">
+              Friday
+              <div class="row">
+                <div class="col">
+                  <img src="media/Rain.svg" alt="" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">2° | 12°</div>
+              </div>
+            </div>
+
+            <div class="col forecastDay">
+              Saturday
+              <div class="row">
+                <div class="col">
+                  <img src="media/Snow.svg" alt="" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">2° | 12°</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>

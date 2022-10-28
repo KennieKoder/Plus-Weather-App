@@ -1,0 +1,119 @@
+/* .darkBlue {
+    background: #1b1f3a;
+}
+
+.darkPurple {
+    background: #53354a;
+}
+
+.burntOrange {
+    background: #a64942;
+}
+
+.orange {
+    background: #ff7844;
+
+font-family: 'Comfortaa', cursive;
+font-family: 'Nixie One', cursive;
+font-family: 'Quicksand', sans-serif;
+} */
+
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: #ff7844;
+}
+
+body {
+    background-image: url(../media/purpleleaves.jpg);
+}
+
+button {
+    background-color: #ff7844;
+    transition: all 200ms ease-in-out;
+    border: solid 1px black;
+}
+
+button:hover {
+    background-color: #53354a;
+}
+
+hr {
+    height: 3px;
+    border: none;
+    color: #ff7844;
+    background-color: #ff7844;
+}
+
+input {
+    width: 50%;
+    background-color: #5053659f;
+    color: white;
+}
+
+h1 {
+    padding: 15px 15px 0px 27px;
+    display: inline-block;
+}
+
+h2 {
+    padding: 0px 27px;
+}
+
+img {
+    width: 50%;
+}
+
+.cityDate {
+    position: relative;
+    right: 45%;
+}
+
+.content {
+    color: white;
+    background: rgba(27, 31, 58, 0.9);
+    border: 1px solid #1b1f3a;
+    font-family: "Quicksand", sans-serif;
+    padding: 30px;
+    margin: 5px 65px 5px 65px;
+}
+
+.currentTemp {
+    font-size: 80px;
+}
+
+.forecast {
+    padding: 10px 0px;
+}
+
+.forecastDay {
+    background-color: #5053659f;
+    padding: 40px 0px;
+    margin: 0px 5px;
+}
+
+.temp {
+    font-size: 12px;
+}
+
+.topHalf {
+    background-color: #5053659f;
+    margin-top: 15px;
+}
+
+.todaysWeather {
+    padding: 30px 0px;
+}
+
+.unitType {
+    background-color: #5053659f;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.weatherDetails {
+    font-size: 20px;
+}
