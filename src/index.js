@@ -1,4 +1,29 @@
+//load on start 
+
+function showTemp(response) {
+  let cityName = document.querySelector("#city-name");
+  let newCityName = response.data.name;
+  let oldTemp = document.getElementById("#current-temp");
+  let newTemp = Math.round(response.data.main.temp);
+  let oldFeelsLike = document.getElementById("#feels-like");
+  let newFeelsLike = Math.round(response.data.main.feels_like);
+  let oldHumidity = document.getElementById("#humidity");
+  let newHumidity = response.data.main.humidity;
+  let oldWinds = document.getElementById("#winds");
+  let newWinds = Math.round(response.data.wind.speed);
+  let oldWeatherDetails = document.querySelector("#weather-description")
+  let newWeatherDetails = response.data.weather[0].description;
+
+  cityName.innerHTML = newCityName;
+  oldTemp.innerHTML = `${newTemp}°`;
+  oldFeelsLike.innerHTML = `Feels like ${newFeelsLike}°`;
+  oldHumidity.innerHTML = `${newHumidity}% Humidity`;
+  oldWinds.innerHTML = `${newWinds}km/h Winds`;
+  oldWeatherDetails.innerHTML = newWeatherDetails;
+}
+
 //Get current date and time
+
 function formatDate(date) {
   let months = [
     "Jan",
@@ -49,7 +74,7 @@ function formatDate(date) {
 function showSearchedStats(response) {
   let cityName = document.querySelector("#city-name");
   let newCityName = response.data.name;
-  let oldTemp = document.getElementById("#current-temp")
+  let oldTemp = document.getElementById("#current-temp");
   let newTemp = Math.round(response.data.main.temp);
   let oldFeelsLike = document.getElementById("#feels-like");
   let newFeelsLike = Math.round(response.data.main.feels_like);
@@ -117,6 +142,14 @@ function getLocation(event) {
 
 };
 
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  
+  let temperature = document.getElementById("#current-temp");
+  let fahrenheitTemp = Math.round((17 * 9/5) + 32);
+  temperature.innerHTML = `${fahrenheitTemp}°`;
+};
+
 //Get current date and time
 
 let dateAndTime = document.querySelector("#date");
@@ -134,28 +167,14 @@ form.addEventListener("submit", searchCity);
 let locationButton = document.getElementById("#location-button");
 locationButton.addEventListener("click", getLocation);
 
+let fahrenheitSwitch = document.getElementById("#fahrenheit-switch");
+fahrenheitSwitch.addEventListener("click", displayFahrenheitTemperature)
 
-// 🙀Bonus Feature
-// Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
+//load on start
 
-// function convertToFahrenheit(event) {
-//   event.preventDefault();
-//   let temp = document.querySelector(".currentTemp");
-//   let fakeTemp = 17;
-//   let fahrenheitTemp = Math.round((fakeTemp * 9) / 5 + 32);
-//   temp.innerHTML = `${fahrenheitTemp}°`;
-// }
+let apiKey = `0ebc654fccbc00189d5408f3d6f15b08`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=toronto&units=metric&appid=${apiKey}`;
 
-// let fahrenheitLink = document.getElementById("#fahrenheit-switch");
-// fahrenheitLink.addEventListener("click", convertToFahrenheit);
+axios.get(apiUrl).then(showTemp);
 
-// function convertToCelsius(event) {
-//   event.preventDefault();
-//   let temp = document.querySelector(".currentTemp");
-//   let fakeTemp = 63;
-//   let celsiusTemp = Math.round((fakeTemp - 30) / 2);
-//   temp.innerHTML = `${celsiusTemp}°`;
-// }
 
-// let celsiusLink = document.getElementById("#celsius-switch");
-// celsiusLink.addEventListener("click", convertToCelsius);
