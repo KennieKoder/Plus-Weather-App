@@ -13,6 +13,7 @@ function showTemp(response) {
   let newWinds = Math.round(response.data.wind.speed);
   let oldWeatherDetails = document.querySelector("#weather-description")
   let newWeatherDetails = response.data.weather[0].description;
+  let iconElement = document.querySelector("#icon");
 
   celciusTemp = response.data.main.temp;
 
@@ -22,6 +23,7 @@ function showTemp(response) {
   oldHumidity.innerHTML = `${newHumidity}% Humidity`;
   oldWinds.innerHTML = `${newWinds}km/h Winds`;
   oldWeatherDetails.innerHTML = newWeatherDetails;
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 //Get current date and time
@@ -86,6 +88,7 @@ function showSearchedStats(response) {
   let newWinds = Math.round(response.data.wind.speed);
   let oldWeatherDetails = document.querySelector("#weather-description")
   let newWeatherDetails = response.data.weather[0].description;
+  let iconElement = document.querySelector("#icon");
 
   celciusTemp = response.data.main.temp;
 
@@ -95,6 +98,7 @@ function showSearchedStats(response) {
   oldHumidity.innerHTML = `${newHumidity}% Humidity`;
   oldWinds.innerHTML = `${newWinds}km/h Winds`;
   oldWeatherDetails.innerHTML = newWeatherDetails;
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
 };
 
@@ -122,6 +126,7 @@ function showLocalStats(response) {
   let newWinds = Math.round(response.data.wind.speed);
   let oldWeatherDetails = document.querySelector("#weather-description")
   let newWeatherDetails = response.data.weather[0].description;
+  let iconElement = document.querySelector("#icon");
   
   celciusTemp = response.data.main.temp;
 
@@ -131,6 +136,7 @@ function showLocalStats(response) {
   oldHumidity.innerHTML = `${newHumidity}% Humidity`;
   oldWinds.innerHTML = `${newWinds}km/h Winds`;
   oldWeatherDetails.innerHTML = newWeatherDetails;
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 };
 
 function getLocation(event) {
