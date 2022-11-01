@@ -75,6 +75,7 @@ li {
     list-style: none;
     line-height: 30px;
     font-size: 24px;
+    text-transform: capitalize;
 }
 
 #city-name {

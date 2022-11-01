@@ -57,18 +57,21 @@ function showSearchedStats(response) {
   let newHumidity = response.data.main.humidity;
   let oldWinds = document.getElementById("#winds");
   let newWinds = Math.round(response.data.wind.speed);
+  let oldWeatherDetails = document.querySelector("#weather-description")
+  let newWeatherDetails = response.data.weather[0].description;
 
   cityName.innerHTML = newCityName;
   oldTemp.innerHTML = `${newTemp}°`;
   oldFeelsLike.innerHTML = `Feels like ${newFeelsLike}°`;
   oldHumidity.innerHTML = `${newHumidity}% Humidity`;
   oldWinds.innerHTML = `${newWinds}km/h Winds`;
+  oldWeatherDetails.innerHTML = newWeatherDetails;
+
 };
 
 function searchCity(event) {
   event.preventDefault();
   let searchedCity = document.querySelector("#search-city").value;
-  console.log(searchedCity);
   let apiKey = `0ebc654fccbc00189d5408f3d6f15b08`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&units=metric&appid=${apiKey}`;
 
@@ -88,12 +91,15 @@ function showLocalStats(response) {
   let newHumidity = response.data.main.humidity;
   let oldWinds = document.getElementById("#winds");
   let newWinds = Math.round(response.data.wind.speed);
+  let oldWeatherDetails = document.querySelector("#weather-description")
+  let newWeatherDetails = response.data.weather[0].description;
   
   cityName.innerHTML = newCityName;
   oldTemp.innerHTML = `${newTemp}°`;
   oldFeelsLike.innerHTML = `Feels like ${newFeelsLike}°`;
   oldHumidity.innerHTML = `${newHumidity}% Humidity`;
   oldWinds.innerHTML = `${newWinds}km/h Winds`;
+  oldWeatherDetails.innerHTML = newWeatherDetails;
 };
 
 function getLocation(event) {
