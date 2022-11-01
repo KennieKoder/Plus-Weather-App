@@ -121,10 +121,19 @@ li {
     margin: 0px 5px;
 }
 
+.hostedBy {
+    margin: 0 auto;
+    display: block;
+    color: rgba(255, 255, 255, 0.416);
+}
 .hostedByLink {
     color: rgba(255, 255, 255, 0.416);
-    margin: 0px auto;
     
+}
+
+.hostedByLink:hover {
+    color: rgba(255, 255, 255, 0.416);
+    text-decoration: underline;
 }
 
 .outsideContent {
