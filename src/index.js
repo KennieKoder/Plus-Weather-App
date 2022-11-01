@@ -14,6 +14,8 @@ function showTemp(response) {
   let oldWeatherDetails = document.querySelector("#weather-description")
   let newWeatherDetails = response.data.weather[0].description;
 
+  celciusTemp = response.data.main.temp;
+
   cityName.innerHTML = newCityName;
   oldTemp.innerHTML = `${newTemp}°`;
   oldFeelsLike.innerHTML = `Feels like ${newFeelsLike}°`;
@@ -85,6 +87,8 @@ function showSearchedStats(response) {
   let oldWeatherDetails = document.querySelector("#weather-description")
   let newWeatherDetails = response.data.weather[0].description;
 
+  celciusTemp = response.data.main.temp;
+
   cityName.innerHTML = newCityName;
   oldTemp.innerHTML = `${newTemp}°`;
   oldFeelsLike.innerHTML = `Feels like ${newFeelsLike}°`;
@@ -119,6 +123,8 @@ function showLocalStats(response) {
   let oldWeatherDetails = document.querySelector("#weather-description")
   let newWeatherDetails = response.data.weather[0].description;
   
+  celciusTemp = response.data.main.temp;
+
   cityName.innerHTML = newCityName;
   oldTemp.innerHTML = `${newTemp}°`;
   oldFeelsLike.innerHTML = `Feels like ${newFeelsLike}°`;
@@ -142,14 +148,28 @@ function getLocation(event) {
 
 };
 
+//Temperature Conversion
+
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   
   let temperature = document.getElementById("#current-temp");
-  let fahrenheitTemp = Math.round((17 * 9/5) + 32);
+  let fahrenheitTemp = Math.round((celciusTemp * 9/5) + 32);
   temperature.innerHTML = `${fahrenheitTemp}°`;
+  celciusSwitch.classList.remove("active");
+  fahrenheitSwitch.classList.add("active");
 };
 
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  let temperature = document.getElementById("#current-temp");
+  temperature.innerHTML = `${Math.round(celciusTemp)}°`;
+  fahrenheitSwitch.classList.remove("active");
+  celciusSwitch.classList.add("active");
+  
+}
+
+let celciusTemp = null;
 //Get current date and time
 
 let dateAndTime = document.querySelector("#date");
@@ -167,9 +187,14 @@ form.addEventListener("submit", searchCity);
 let locationButton = document.getElementById("#location-button");
 locationButton.addEventListener("click", getLocation);
 
+
+//Temperature Conversion 
+
 let fahrenheitSwitch = document.getElementById("#fahrenheit-switch");
 fahrenheitSwitch.addEventListener("click", displayFahrenheitTemperature)
 
+let celciusSwitch = document.getElementById("#celcius-switch");
+celciusSwitch.addEventListener("click", displayCelciusTemperature);
 //load on start
 
 let apiKey = `0ebc654fccbc00189d5408f3d6f15b08`;
