@@ -113,7 +113,7 @@ function getLocation(event) {
 
 //Get current date and time
 
-let dateAndTime = document.querySelector("h2");
+let dateAndTime = document.querySelector("#date");
 dateAndTime.innerHTML = formatDate(dateAndTime);
 
 //search city (new with API)

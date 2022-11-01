@@ -67,6 +67,21 @@ img {
     width: 50%;
 }
 
+ul {
+    padding-top: 20px;
+}
+
+li {
+    list-style: none;
+    line-height: 30px;
+    font-size: 24px;
+}
+
+#city-name {
+    font-size: 38px;
+    padding-bottom: 8px;
+}
+
 .cityDate {
     position: relative;
     right: 45%;
