@@ -31,138 +31,142 @@
 
   <body>
     <div class="container">
-      <div class="content">
-        <!-- SEARCH BAR -->
-        <form class="form">
-          <input
-            type="search"
-            id="search-city"
-            name="search"
-            placeholder="Search for a City..."
-          />
-          <button id="#search-button">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-          <button id="#location-button">
-            <i class="fa-solid fa-location-crosshairs"></i>
-          </button>
-          <button><i class="fa-regular fa-star"></i></button>
-        </form>
+      <div class="outsideContent">
+        <div class="content">
+          <!-- SEARCH BAR -->
+          <form class="form">
+            <input
+              type="search"
+              id="search-city"
+              name="search"
+              placeholder="Search for a City..."
+            />
+            <button id="#search-button">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <button id="#location-button">
+              <i class="fa-solid fa-location-crosshairs"></i>
+            </button>
+            <button><i class="fa-regular fa-star"></i></button>
+          </form>
 
-        <div class="topHalf">
-          <h1 id="city-name">Toronto</h1>
-          <button><i class="fa-regular fa-star"></i></button>
-          <!-- DATE AND TIME -->
-          <h2>Tuesday Oct 18th</h2>
+          <div class="topHalf">
+            <h1 id="city-name">Toronto</h1>
+            <button><i class="fa-regular fa-star"></i></button>
+            <!-- DATE AND TIME -->
+            <h2>Tuesday Oct 18th</h2>
+
+            <div class="container text-center">
+              <div
+                class="row todaysWeather d-flex justify-content-around align-items-center"
+              >
+                <!-- FAKE TEMP C TO F  -->
+                <div class="col">
+                  <span class="currentTemp" id="#current-temp">17°</span>
+                  <a href="#" id="#celsius-switch">C</a> |
+                  <a href="#" id="#fahrenheit-switch">F</a>
+                </div>
+
+                <div class="col">
+                  <div class="row">
+                    <div class="col weatherDetails" id="#feels-like">
+                      Feels Like 12°
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col weatherDetails" id="#humidity">
+                      57% Humidity
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col weatherDetails" id="#winds">
+                      40Km/H Winds
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <img src="media/SunIcon.svg" alt="Sun behind cloud icon" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
 
           <div class="container text-center">
-            <div
-              class="row todaysWeather d-flex justify-content-around align-items-center"
-            >
-              <!-- FAKE TEMP C TO F  -->
-              <div class="col">
-                <span class="currentTemp" id="#current-temp">17°</span>
-                <a href="#" id="#celsius-switch">C</a> |
-                <a href="#" id="#fahrenheit-switch">F</a>
-              </div>
-
-              <div class="col">
+            <div class="row forecast">
+              <div class="col forecastDay">
+                Tuesday
                 <div class="row">
-                  <div class="col weatherDetails" id="#feels-like">
-                    Feels Like 12°
+                  <div class="col">
+                    <img src="media/SunIcon.svg" />
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col weatherDetails" id="#humidity">
-                    57% Humidity
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col weatherDetails" id="#winds">40Km/H Winds</div>
+                  <div class="col">2° | 12°</div>
                 </div>
               </div>
 
-              <div class="col">
-                <img src="media/SunIcon.svg" alt="Sun behind cloud icon" />
+              <div class="col forecastDay">
+                Wednesday
+                <div class="row">
+                  <div class="col">
+                    <img src="media/sunAndCloudIcon.svg" alt="" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">2° | 12°</div>
+                </div>
+              </div>
+
+              <div class="col forecastDay">
+                Thursday
+                <div class="row">
+                  <div class="col">
+                    <img src="media/Cloudy.svg" alt="" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">2° | 12°</div>
+                </div>
+              </div>
+
+              <div class="col forecastDay">
+                Friday
+                <div class="row">
+                  <div class="col">
+                    <img src="media/Rain.svg" alt="" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">2° | 12°</div>
+                </div>
+              </div>
+
+              <div class="col forecastDay">
+                Saturday
+                <div class="row">
+                  <div class="col">
+                    <img src="media/Snow.svg" alt="" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">2° | 12°</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        <hr />
-
-        <div class="container text-center">
-          <div class="row forecast">
-            <div class="col forecastDay">
-              Tuesday
-              <div class="row">
-                <div class="col">
-                  <img src="media/SunIcon.svg" />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">2° | 12°</div>
-              </div>
-            </div>
-
-            <div class="col forecastDay">
-              Wednesday
-              <div class="row">
-                <div class="col">
-                  <img src="media/sunAndCloudIcon.svg" alt="" />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">2° | 12°</div>
-              </div>
-            </div>
-
-            <div class="col forecastDay">
-              Thursday
-              <div class="row">
-                <div class="col">
-                  <img src="media/Cloudy.svg" alt="" />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">2° | 12°</div>
-              </div>
-            </div>
-
-            <div class="col forecastDay">
-              Friday
-              <div class="row">
-                <div class="col">
-                  <img src="media/Rain.svg" alt="" />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">2° | 12°</div>
-              </div>
-            </div>
-
-            <div class="col forecastDay">
-              Saturday
-              <div class="row">
-                <div class="col">
-                  <img src="media/Snow.svg" alt="" />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">2° | 12°</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <span class="hostedByLink"
+          >Hosted with
+          <a
+            href="https://www.netlify.com/?utm_source=google&utm_medium=paid_search&utm_campaign=12755510784&adgroup=118788138897&utm_term=netlify&utm_content=aud-951962601255:kwd-371509120223&creative=514583565825&device=c&matchtype=e&location=9105335&gclid=Cj0KCQjw--2aBhD5ARIsALiRlwAPqL5dz6zr-6AdA0T23A_pk6N98Rli6s9Vq62kZ7SgFyB5n_CaZpwaAmrdEALw_wcB"
+            target="_blank"
+            >Netlify</a
+          >
+        </span>
       </div>
-      <span class="hostedByLink"
-        >Hosted with
-        <a
-          href="https://www.netlify.com/?utm_source=google&utm_medium=paid_search&utm_campaign=12755510784&adgroup=118788138897&utm_term=netlify&utm_content=aud-951962601255:kwd-371509120223&creative=514583565825&device=c&matchtype=e&location=9105335&gclid=Cj0KCQjw--2aBhD5ARIsALiRlwAPqL5dz6zr-6AdA0T23A_pk6N98Rli6s9Vq62kZ7SgFyB5n_CaZpwaAmrdEALw_wcB"
-          target="_blank"
-          >Netlify</a
-        ></span
-      >
     </div>
 
     <script src="src/index.js"></script>

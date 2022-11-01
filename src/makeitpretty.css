@@ -78,7 +78,8 @@ img {
     border: 1px solid #1b1f3a;
     font-family: "Quicksand", sans-serif;
     padding: 30px;
-    margin: 5px 65px 5px 65px;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
 .currentTemp {
@@ -97,7 +98,14 @@ img {
 
 .hostedByLink {
     color: rgba(255, 255, 255, 0.416);
-    margin: 0px 65px;
+    margin: 0px auto;
+    
+}
+
+.outsideContent {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
 }
 
 
