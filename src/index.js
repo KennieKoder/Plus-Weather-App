@@ -1,3 +1,20 @@
+//get Stylesheet based on current time 
+
+function getStylesheet() {
+    let theme = document.querySelector("#theme");
+    let currentTime = new Date().getHours();
+
+    if (0<= currentTime&&currentTime <6) {
+        theme.setAttribute(`href`, `src/night.css`);
+    } if (6<= currentTime&&currentTime <18) {
+        theme.setAttribute(`href`, `src/day.css`);
+    } if (18<= currentTime&&currentTime<24) {
+        theme.setAttribute(`href`, `src/night.css`);
+    }
+}    
+
+getStylesheet();
+
 //load on start 
 
 function showTemp(response) {
@@ -23,7 +40,8 @@ function showTemp(response) {
   oldHumidity.innerHTML = `${newHumidity}% Humidity`;
   oldWinds.innerHTML = `${newWinds}km/h Winds`;
   oldWeatherDetails.innerHTML = newWeatherDetails;
-  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  iconElement.setAttribute("src", iconCodePathConverter[response.data.weather[0].icon]);
 }
 
 //Get current date and time
@@ -98,8 +116,8 @@ function showSearchedStats(response) {
   oldHumidity.innerHTML = `${newHumidity}% Humidity`;
   oldWinds.innerHTML = `${newWinds}km/h Winds`;
   oldWeatherDetails.innerHTML = newWeatherDetails;
-  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
+  iconElement.setAttribute("src", iconCodePathConverter[response.data.weather[0].icon]);
 };
 
 function searchCity(event) {
@@ -136,7 +154,8 @@ function showLocalStats(response) {
   oldHumidity.innerHTML = `${newHumidity}% Humidity`;
   oldWinds.innerHTML = `${newWinds}km/h Winds`;
   oldWeatherDetails.innerHTML = newWeatherDetails;
-  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  iconElement.setAttribute("src", iconCodePathConverter[response.data.weather[0].icon]);
 };
 
 function getLocation(event) {
@@ -175,11 +194,38 @@ function displayCelciusTemperature(event) {
   
 }
 
+// weather icons 
+
+let iconCodePathConverter = {
+    "01d": "media/clearskyday.svg",
+    "01n": "media/clearskynight.svg",
+    "02d": "media/fewcloudsday.svg",
+    "02n": "media/fewcloudsnight.svg",
+    "03d": "media/scatteredcloudsday.svg",
+    "03n": "media/scatteredcloudsnight.svg",
+    "04d": "media/brokencloudsday.svg",
+    "04n": "media/brokencloudsnight.svg",
+    "09d": "media/showerrain.svg",
+    "09n": "media/showerrain.svg",
+    "10d": "media/rainday.svg",
+    "10n": "media/rainnight.svg",
+    "11d": "media/thunderstormday.svg",
+    "11n": "media/thunderstormnight.svg",
+    "13d": "media/snowday.svg",
+    "13n": "media/snownight.svg",
+    "50d": "media/mistday.svg",
+    "50n": "media/mistnight.svg",
+}
+
+
+
 let celciusTemp = null;
+
 //Get current date and time
 
 let dateAndTime = document.querySelector("#date");
 dateAndTime.innerHTML = formatDate(dateAndTime);
+
 
 //search city (new with API)
 
@@ -201,11 +247,10 @@ fahrenheitSwitch.addEventListener("click", displayFahrenheitTemperature)
 
 let celciusSwitch = document.getElementById("#celcius-switch");
 celciusSwitch.addEventListener("click", displayCelciusTemperature);
+
 //load on start
 
 let apiKey = `0ebc654fccbc00189d5408f3d6f15b08`;
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=toronto&units=metric&appid=${apiKey}`;
 
 axios.get(apiUrl).then(showTemp);
-
-
