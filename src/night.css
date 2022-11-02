@@ -1,0 +1,90 @@
+ul {
+    list-style: none;
+    text-align: left;
+    padding-left: 0px;
+}
+
+body {
+    background-image: url("../media/pexels-pixabay-358528.jpg");
+}
+
+.active {
+    color: #fcf9f4;
+    cursor: default;
+    text-decoration: none;
+}
+
+a {
+    color: #404e7c;
+    transition: all 200ms ease-in-out;
+}
+
+a:hover {
+    color: #fcf9f4;
+}
+
+.hostedByLink {
+    color: #8b9092;
+    transition: all 200ms ease-in-out;
+}
+
+.hostedByLink:hover {
+    color: #251f47;
+}
+
+
+
+.nightButton {
+    color: #fcf9f4;
+    background-color: #404e7c;
+    border: solid 1px #fcf9f4;
+    transition: all 200ms ease-in-out;
+}
+
+.nightButton:hover {
+    background-color: #fcf9f4;
+    color: #404e7c;
+}
+
+.hostedBy {
+    display: block;
+    color: #fcf9f47f;
+}
+
+hr {
+    height: 3px;
+    border: none;
+    background-color: #404e7c;
+    color: #404e7c;
+}
+
+.content {
+    color: #fcf9f4;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px;
+    border: 1px solid #151627;
+    border-radius: 5px;
+    font-family: "Quicksand", sans-serif;
+    background-color: #151128b1;
+    box-shadow: 12px 12px 2px 1px rgba(10, 7, 26, 0.2);
+}
+
+.currentTemp {
+    color: #fcf9f4;
+}
+
+.outsideContent {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: "Quicksand", sans-serif;
+}
+
+.currentTemp {
+    font-size: 44px;
+}
+
+#city-name {
+    font-size: 34px;
+}
