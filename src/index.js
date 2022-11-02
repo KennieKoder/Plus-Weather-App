@@ -13,8 +13,6 @@ function getStylesheet() {
     }
 }    
 
-getStylesheet();
-
 //load on start 
 
 function showTemp(response) {
@@ -193,6 +191,10 @@ function displayCelciusTemperature(event) {
   celciusSwitch.classList.add("active");
   
 }
+
+//stylesheet function call
+
+getStylesheet();
 
 // weather icons 
 
