@@ -1,147 +1,83 @@
-
-a {
-    color: #ff7844;
-}
-
-a:hover {
-    color: #1b1f3a;
-}
-
-.active {
-    text-decoration: none;
-    color: white;
-}
-.active:hover {
-    color: white;
-    cursor: default;
+ul {
+    list-style: none;
+    text-align: left;
+    padding-left: 0px;
 }
 
 body {
-    background-image: url(../media/purpleleaves.jpg);
+    background-image: url("../media/pexels-abraham-12242388.jpg");
 }
 
-button {
-    background-color: #ff7844;
+.active {
+    color: black;
+    cursor: default;
+    text-decoration: none;
+}
+
+a {
+    color: #ea7659;
+}
+
+a:hover {
+    color: #ffc97c;
     transition: all 200ms ease-in-out;
-    border: solid 1px black;
 }
 
-button:hover {
-    background-color: #53354a;
+.hostedByLink {
+    color: rgb(38, 38, 38);
+    transition: all 200ms ease-in-out;
+}
+
+.hostedByLink:hover {
+    color: #ffc97c;
+}
+
+
+
+.dayButton {
+    color: rgb(38, 38, 38);
+    background-color: #ea7659;
+    border: solid 1px rgb(38, 38, 38);
+}
+
+.dayButton:hover {
+    background-color: #ffc97c;
+    transition: all 200ms ease-in-out;
+}
+
+.hostedBy {
+    display: block;
 }
 
 hr {
     height: 3px;
     border: none;
-    color: #ff7844;
-    background-color: #ff7844;
-}
-
-input {
-    width: 50%;
-    background-color: #5053659f;
-    color: white;
-}
-
-h1 {
-    padding: 15px 15px 0px 27px;
-    display: inline-block;
-}
-
-h2 {
-    padding: 0px 27px;
-}
-
-img {
-    width: 50%;
-}
-
-ul {
-    padding-top: 20px;
-}
-
-li {
-    list-style: none;
-    line-height: 30px;
-    font-size: 24px;
-    text-transform: capitalize;
-}
-
-#city-name {
-    font-size: 38px;
-    padding-bottom: 8px;
-}
-
-.cityDate {
-    position: relative;
-    right: 45%;
+    background-color: #ea7659;
+    color: #ea7659;
 }
 
 .content {
-    color: white;
-    background: rgba(27, 31, 58, 0.9);
-    border: 1px solid #1b1f3a;
-    font-family: "Quicksand", sans-serif;
-    padding: 30px;
-    margin: 0 auto;
     max-width: 800px;
-}
-
-.currentTemp {
-    font-size: 80px;
-}
-
-.forecast {
-    padding: 10px 0px;
-}
-
-.forecastDay {
-    background-color: #5053659f;
-    padding: 40px 0px;
-    margin: 0px 5px;
-}
-
-.hostedBy {
     margin: 0 auto;
-    display: block;
-    color: rgba(255, 255, 255, 0.416);
-}
-.hostedByLink {
-    color: rgba(255, 255, 255, 0.416);
-    
-}
-
-.hostedByLink:hover {
-    color: rgba(255, 255, 255, 0.416);
-    text-decoration: underline;
+    padding: 60px;
+    border: 1px solid #817d7d;
+    border-radius: 5px;
+    font-family: "Quicksand", sans-serif;
+    background-color: #c1c1c19a;
+    box-shadow: 12px 12px 2px 1px rgba(93, 92, 92, 0.2);
 }
 
 .outsideContent {
     max-width: 800px;
     margin: 0 auto;
-    padding: 40px;
+    padding: 30px;
+    font-family: "Quicksand", sans-serif;
 }
 
-
-.temp {
-    font-size: 12px;
+.currentTemp {
+    font-size: 44px;
 }
 
-.topHalf {
-    background-color: #5053659f;
-    margin-top: 15px;
-}
-
-.todaysWeather {
-    padding: 30px 0px;
-}
-
-.unitType {
-    background-color: #5053659f;
-    font-size: 12px;
-    font-weight: 900;
-}
-
-.weatherDetails {
-    font-size: 20px;
+#city-name {
+    font-size: 34px;
 }
