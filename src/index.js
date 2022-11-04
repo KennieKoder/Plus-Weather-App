@@ -15,22 +15,29 @@ function getStylesheet() {
 
 //load on start 
 
+function getForecast(coordinates) {
+  let lon = coordinates.longitude;
+  let lat = coordinates.latitude;
+  let apiKey = `498cb4a4fe930cotf42babaf05d8e8ae`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}`;
+};
+
 function showTemp(response) {
   let cityName = document.querySelector("#city-name");
-  let newCityName = response.data.name;
+  let newCityName = response.data.city;
   let oldTemp = document.getElementById("#current-temp");
-  let newTemp = Math.round(response.data.main.temp);
+  let newTemp = Math.round(response.data.temperature.current);
   let oldFeelsLike = document.getElementById("#feels-like");
-  let newFeelsLike = Math.round(response.data.main.feels_like);
+  let newFeelsLike = Math.round(response.data.temperature.feels_like);
   let oldHumidity = document.getElementById("#humidity");
-  let newHumidity = response.data.main.humidity;
+  let newHumidity = response.data.temperature.humidity;
   let oldWinds = document.getElementById("#winds");
   let newWinds = Math.round(response.data.wind.speed);
   let oldWeatherDetails = document.querySelector("#weather-description")
-  let newWeatherDetails = response.data.weather[0].description;
+  let newWeatherDetails = response.data.condition.description;
   let iconElement = document.querySelector("#icon");
 
-  celciusTemp = response.data.main.temp;
+  celciusTemp = response.data.temperature;
 
   cityName.innerHTML = newCityName;
   oldTemp.innerHTML = `${newTemp}°`;
@@ -39,7 +46,10 @@ function showTemp(response) {
   oldWinds.innerHTML = `${newWinds}km/h Winds`;
   oldWeatherDetails.innerHTML = newWeatherDetails;
 
-  iconElement.setAttribute("src", iconCodePathConverter[response.data.weather[0].icon]);
+  iconElement.setAttribute("src", iconCodePathConverter[response.data.condition.icon]);
+
+  getForecast(response.data.coordinates);
+
 }
 
 //Get current date and time
@@ -126,24 +136,24 @@ displayForecast()
 
 
 
-//search city (new with API)
+//search city 
 
 function showSearchedStats(response) {
   let cityName = document.querySelector("#city-name");
-  let newCityName = response.data.name;
+  let newCityName = response.data.city;
   let oldTemp = document.getElementById("#current-temp");
-  let newTemp = Math.round(response.data.main.temp);
+  let newTemp = Math.round(response.data.temperature.current);
   let oldFeelsLike = document.getElementById("#feels-like");
-  let newFeelsLike = Math.round(response.data.main.feels_like);
+  let newFeelsLike = Math.round(response.data.temperature.feels_like);
   let oldHumidity = document.getElementById("#humidity");
-  let newHumidity = response.data.main.humidity;
+  let newHumidity = response.data.temperature.humidity;
   let oldWinds = document.getElementById("#winds");
   let newWinds = Math.round(response.data.wind.speed);
   let oldWeatherDetails = document.querySelector("#weather-description")
-  let newWeatherDetails = response.data.weather[0].description;
+  let newWeatherDetails = response.data.condition.description;
   let iconElement = document.querySelector("#icon");
 
-  celciusTemp = response.data.main.temp;
+  celciusTemp = response.data.temperature;
 
   cityName.innerHTML = newCityName;
   oldTemp.innerHTML = `${newTemp}°`;
@@ -152,14 +162,17 @@ function showSearchedStats(response) {
   oldWinds.innerHTML = `${newWinds}km/h Winds`;
   oldWeatherDetails.innerHTML = newWeatherDetails;
 
-  iconElement.setAttribute("src", iconCodePathConverter[response.data.weather[0].icon]);
+  iconElement.setAttribute("src", iconCodePathConverter[response.data.condition.icon]);
+
 };
+
+
 
 function searchCity(event) {
   event.preventDefault();
   let searchedCity = document.querySelector("#search-city").value;
-  let apiKey = `0ebc654fccbc00189d5408f3d6f15b08`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&units=metric&appid=${apiKey}`;
+  let apiKey = `498cb4a4fe930cotf42babaf05d8e8ae`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchedCity}&key=${apiKey}`;
 
   axios.get(apiUrl).then(showSearchedStats);
 };
@@ -168,20 +181,20 @@ function searchCity(event) {
 
 function showLocalStats(response) {
   let cityName = document.querySelector("#city-name");
-  let newCityName = response.data.name;
+  let newCityName = response.data.city;
   let oldTemp = document.getElementById("#current-temp")
-  let newTemp = Math.round(response.data.main.temp);
+  let newTemp = Math.round(response.data.temperature.current);
   let oldFeelsLike = document.getElementById("#feels-like");
-  let newFeelsLike = Math.round(response.data.main.feels_like);
+  let newFeelsLike = Math.round(response.data.temperature.feels_like);
   let oldHumidity = document.getElementById("#humidity");
-  let newHumidity = response.data.main.humidity;
+  let newHumidity = response.data.temperature.humidity;
   let oldWinds = document.getElementById("#winds");
   let newWinds = Math.round(response.data.wind.speed);
   let oldWeatherDetails = document.querySelector("#weather-description")
-  let newWeatherDetails = response.data.weather[0].description;
+  let newWeatherDetails = response.data.condition.description;
   let iconElement = document.querySelector("#icon");
   
-  celciusTemp = response.data.main.temp;
+  celciusTemp = response.data.temperature;
 
   cityName.innerHTML = newCityName;
   oldTemp.innerHTML = `${newTemp}°`;
@@ -190,7 +203,7 @@ function showLocalStats(response) {
   oldWinds.innerHTML = `${newWinds}km/h Winds`;
   oldWeatherDetails.innerHTML = newWeatherDetails;
 
-  iconElement.setAttribute("src", iconCodePathConverter[response.data.weather[0].icon]);
+  iconElement.setAttribute("src", iconCodePathConverter[response.data.condition.icon]);
 };
 
 function getLocation(event) {
@@ -199,9 +212,9 @@ function getLocation(event) {
 
   function showLocation(position) {
     let lat = Math.round(position.coords.latitude);
-    let long = Math.round(position.coords.longitude);
-    let apiKey = `0ebc654fccbc00189d5408f3d6f15b08`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lon=${long}&lat=${lat}&units=metric&appid=${apiKey}`;
+    let lon = Math.round(position.coords.longitude);
+    let apiKey = `498cb4a4fe930cotf42babaf05d8e8ae`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}`;
 
     axios.get(apiUrl).then(showLocalStats);
   };
@@ -214,16 +227,18 @@ function displayFahrenheitTemperature(event) {
   event.preventDefault();
   
   let temperature = document.getElementById("#current-temp");
-  let fahrenheitTemp = Math.round((celciusTemp * 9/5) + 32);
+  let fahrenheitTemp = Math.round((celciusTemp.current * 9/5) + 32);
   temperature.innerHTML = `${fahrenheitTemp}°`;
   celciusSwitch.classList.remove("active");
   fahrenheitSwitch.classList.add("active");
+
+  
 };
 
 function displayCelciusTemperature(event) {
   event.preventDefault();
   let temperature = document.getElementById("#current-temp");
-  temperature.innerHTML = `${Math.round(celciusTemp)}°`;
+  temperature.innerHTML = `${Math.round(celciusTemp.current)}°`;
   fahrenheitSwitch.classList.remove("active");
   celciusSwitch.classList.add("active");
   
@@ -236,24 +251,24 @@ getStylesheet();
 // weather icons 
 
 let iconCodePathConverter = {
-    "01d": "media/clearskyday.svg",
-    "01n": "media/clearskynight.svg",
-    "02d": "media/fewcloudsday.svg",
-    "02n": "media/fewcloudsnight.svg",
-    "03d": "media/scatteredcloudsday.svg",
-    "03n": "media/scatteredcloudsnight.svg",
-    "04d": "media/brokencloudsday.svg",
-    "04n": "media/brokencloudsnight.svg",
-    "09d": "media/showerrain.svg",
-    "09n": "media/showerrain.svg",
-    "10d": "media/rainday.svg",
-    "10n": "media/rainnight.svg",
-    "11d": "media/thunderstormday.svg",
-    "11n": "media/thunderstormnight.svg",
-    "13d": "media/snowday.svg",
-    "13n": "media/snownight.svg",
-    "50d": "media/mistday.svg",
-    "50n": "media/mistnight.svg",
+    "clear-sky-day": "media/clearskyday.svg",
+    "clear-sky-night": "media/clearskynight.svg",
+    "few-clouds-day": "media/fewcloudsday.svg",
+    "few-clouds-night": "media/fewcloudsnight.svg",
+    "scattered-clouds-day": "media/scatteredcloudsday.svg",
+    "scattered-clouds-night": "media/scatteredcloudsnight.svg",
+    "broken-clouds-day": "media/brokencloudsday.svg",
+    "broken-clouds-night": "media/brokencloudsnight.svg",
+    "shower-rain-day": "media/showerrain.svg",
+    "shower-rain-night": "media/showerrain.svg",
+    "rain-day": "media/rainday.svg",
+    "rain-night": "media/rainnight.svg",
+    "thunderstorm-day": "media/thunderstormday.svg",
+    "thunderstorm-night": "media/thunderstormnight.svg",
+    "snow-day": "media/snowday.svg",
+    "snow-night": "media/snownight.svg",
+    "mist-day": "media/mistday.svg",
+    "mist-night": "media/mistnight.svg",
 }
 
 
@@ -289,7 +304,7 @@ celciusSwitch.addEventListener("click", displayCelciusTemperature);
 
 //load on start
 
-let apiKey = `0ebc654fccbc00189d5408f3d6f15b08`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=toronto&units=metric&appid=${apiKey}`;
+let apiKey = `498cb4a4fe930cotf42babaf05d8e8ae`;
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=toronto&key=${apiKey}`;
 
 axios.get(apiUrl).then(showTemp);
