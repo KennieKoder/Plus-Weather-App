@@ -19,7 +19,11 @@ function getForecast(coordinates) {
   let lon = coordinates.longitude;
   let lat = coordinates.latitude;
   let apiKey = `498cb4a4fe930cotf42babaf05d8e8ae`;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+
 };
 
 function showTemp(response) {
@@ -99,7 +103,8 @@ function formatDate(date) {
   return sentence;
 };
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   
   let forecastHTML = `<div class="row">`;
@@ -127,12 +132,6 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 };
-
-displayForecast()
-
-
-
-
 
 
 
