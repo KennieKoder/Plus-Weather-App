@@ -89,6 +89,43 @@ function formatDate(date) {
   return sentence;
 };
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  
+  let forecastHTML = `<div class="row">`;
+  
+  let days = ["Fri", "Sat", "Sun", "Mon", "Tues"];
+  days.forEach(function(day) {
+    forecastHTML = forecastHTML + `
+              <div class="col">
+                <div class="weather-forecast-weekday">${day}</div>
+                <img
+                  src="https://merry-blini-9a3a54.netlify.app/media/brokencloudsday.svg"
+                  alt="icon"
+                  width="50"
+                />
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max">18°</span>
+                  <span class="weather-forecast-temperature-min">12°</span>
+                </div>
+              </div>
+              `;
+
+  });
+
+ 
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+};
+
+displayForecast()
+
+
+
+
+
+
+
 //search city (new with API)
 
 function showSearchedStats(response) {
