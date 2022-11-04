@@ -24,6 +24,11 @@ ul {
     padding-left: 0px;
 }
 
+.forecastImg {
+    text-align: center;
+    width: 100%;
+}
+
 .active {
     color: black;
     cursor: default;
@@ -84,16 +89,21 @@ ul {
 .weather-forecast-weekday {
     font-size: 25;
     font-weight: 900;
+    text-align: center;
 }
 
 .weather-forecast-temperature {
     font-size: 16px;
+    text-align: center;
 }
 
 .weather-forecast-temperature-min {
     opacity: 0.5;
+    text-align: center;
 }
+
 
 #city-name {
     font-size: 34px;
 }
+

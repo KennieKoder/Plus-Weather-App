@@ -1,29 +1,4 @@
-//get Stylesheet based on current time 
-
-function getStylesheet() {
-    let theme = document.querySelector("#theme");
-    let currentTime = new Date().getHours();
-
-    if (0<= currentTime&&currentTime <6) {
-        theme.setAttribute(`href`, `src/night.css`);
-    } if (6<= currentTime&&currentTime <18) {
-        theme.setAttribute(`href`, `src/day.css`);
-    } if (18<= currentTime&&currentTime<24) {
-        theme.setAttribute(`href`, `src/night.css`);
-    }
-}    
-
-//load on start 
-
-function getForecast(coordinates) {
-  let lon = coordinates.longitude;
-  let lat = coordinates.latitude;
-  let apiKey = `498cb4a4fe930cotf42babaf05d8e8ae`;
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(displayForecast);
-
-};
+ //load on start 
 
 function showTemp(response) {
   let cityName = document.querySelector("#city-name");
@@ -107,43 +82,55 @@ function formatDay(timestamp) {
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat" ]
  
-
   return days[day];
 };
+
+// Get Forecast
+
+function getForecast(coordinates) {
+  let lon = coordinates.longitude;
+  let lat = coordinates.latitude;
+  let apiKey = `498cb4a4fe930cotf42babaf05d8e8ae`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+};
+
+// Display Forecast
 
 function displayForecast(response) {
   let forecast = response.data.daily;
  
-  
-
   let forecastElement = document.querySelector("#forecast");
   
   let forecastHTML = `<div class="row">`;
   
-  forecast.forEach(function(forecastDay) {
+  forecast.forEach(function(forecastDay, index) {
+    if (index < 5) {
     forecastHTML = 
       forecastHTML + `
-              <div class="col">
-                <div class="weather-forecast-weekday">${formatDay(forecastDay.time)}</div>
-                <img
-                  src="${iconCodePathConverter[forecastDay.condition.icon]}"
-                  alt="icon"
-                  width="50"
-                  id="#icon"
-                />
-                <div class="weather-forecast-temperature">
-                  <span class="weather-forecast-temperature-max">${Math.round(forecastDay.temperature.maximum)}°</span>
-                  <span class="weather-forecast-temperature-min">${Math.round(forecastDay.temperature.minimum)}°</span>
-                </div>
-              </div>
+        <div class="col">
+          <div class="weather-forecast-weekday">${formatDay(forecastDay.time)}</div>
+            <div class="forecastImg">
+              <img
+                src="${iconCodePathConverter[forecastDay.condition.icon]}"
+                alt="icon"
+                width="50"
+              />
+            </div>
+
+             <div class="weather-forecast-temperature">
+                <span class="weather-forecast-temperature-max">${Math.round(forecastDay.temperature.maximum)}°</span>
+                <span class="weather-forecast-temperature-min">${Math.round(forecastDay.temperature.minimum)}°</span>
+            </div>
+        </div>
               `; 
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 };
-
-
 
 //search city 
 
@@ -172,10 +159,7 @@ function showSearchedStats(response) {
   oldWeatherDetails.innerHTML = newWeatherDetails;
 
   iconElement.setAttribute("src", iconCodePathConverter[response.data.condition.icon]);
-
 };
-
-
 
 function searchCity(event) {
   event.preventDefault();
@@ -225,9 +209,8 @@ function getLocation(event) {
     let apiKey = `498cb4a4fe930cotf42babaf05d8e8ae`;
     let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}`;
 
-    axios.get(apiUrl).then(showLocalStats);
+    axios.get(apiUrl).then(showLocalStats)
   };
-
 };
 
 //Temperature Conversion
@@ -250,12 +233,19 @@ function displayCelciusTemperature(event) {
   temperature.innerHTML = `${Math.round(celciusTemp.current)}°`;
   fahrenheitSwitch.classList.remove("active");
   celciusSwitch.classList.add("active");
-  
 }
 
-//stylesheet function call
+//change theme
 
-getStylesheet();
+function changeTheme() {
+let theme = document.querySelector("#theme");
+
+if (theme.getAttribute(`href`) == 'day.css') {
+    theme.setAttribute(`href`, `night.css`);
+  } if (theme.getAttribute(`href`) == `night.css`) {
+    theme.setAttribute(`href`, `day.css`)
+  }
+} 
 
 // weather icons 
 
