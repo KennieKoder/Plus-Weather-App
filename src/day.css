@@ -18,6 +18,14 @@ hr {
     color: #ea7659;
 }
 
+input {
+    border-radius: 3px;
+    color: rgb(38, 38, 38);
+    background-color: rgba(255, 255, 255, 0.817);
+    border: solid 1px rgb(38, 38, 38);
+    border-radius: 10px;
+}
+
 ul {
     list-style: none;
     text-align: left;
@@ -58,6 +66,7 @@ ul {
     color: rgb(38, 38, 38);
     background-color: #ea7659;
     border: solid 1px rgb(38, 38, 38);
+    border-radius: 10px;
 }
 
 .dayButton:hover {
@@ -76,6 +85,13 @@ ul {
 
 .hostedByLink:hover {
     color: #ffc97c;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+    text-align: center;
 }
 
 .outsideContent {
