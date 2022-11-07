@@ -30,6 +30,7 @@ ul {
     list-style: none;
     text-align: left;
     padding-left: 0px;
+    text-transform: capitalize;
 }
 
 .forecastImg {
@@ -100,6 +101,7 @@ ul {
     padding: 30px;
     font-family: "Quicksand", sans-serif;
 }
+
 
 .weather-forecast {
     margin-top: 20px;
