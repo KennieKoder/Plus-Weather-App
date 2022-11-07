@@ -159,6 +159,9 @@ function showSearchedStats(response) {
   oldWeatherDetails.innerHTML = newWeatherDetails;
 
   iconElement.setAttribute("src", iconCodePathConverter[response.data.condition.icon]);
+
+  getForecast(response.data.coordinates);
+
 };
 
 function searchCity(event) {
@@ -197,6 +200,9 @@ function showLocalStats(response) {
   oldWeatherDetails.innerHTML = newWeatherDetails;
 
   iconElement.setAttribute("src", iconCodePathConverter[response.data.condition.icon]);
+
+  getForecast(response.data.coordinates);
+
 };
 
 function getLocation(event) {
