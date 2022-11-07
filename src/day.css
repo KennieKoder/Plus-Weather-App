@@ -1,10 +1,10 @@
 a {
     color: #ea7659;
+    transition: all 200ms ease-in-out;
 }
 
 a:hover {
     color: #ffc97c;
-    transition: all 200ms ease-in-out;
 }
 
 body {
@@ -67,11 +67,11 @@ ul {
     background-color: #ea7659;
     border: solid 1px rgb(38, 38, 38);
     border-radius: 10px;
+    transition: all 200ms ease-in-out;
 }
 
 .dayButton:hover {
     background-color: #ffc97c;
-    transition: all 200ms ease-in-out;
 }
 
 .hostedBy {

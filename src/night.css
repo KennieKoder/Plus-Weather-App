@@ -7,8 +7,6 @@ a:hover {
     color: #fcf9f4;
 }
 
-
-
 body {
     background-image: url("../media/pexels-pixabay-358528.jpg");
 }
@@ -20,16 +18,33 @@ hr {
     color: #404e7c;
 }
 
-.active {
-    color: #fcf9f4;
-    cursor: default;
-    text-decoration: none;
+input {
+    border-radius: 3px;
+    color: rgb(38, 38, 38);
+    background-color: rgba(255, 255, 255, 0.817);
+    border: solid 1px rgb(38, 38, 38);
+    border-radius: 10px;
 }
 
 ul {
     list-style: none;
     text-align: left;
     padding-left: 0px;
+}
+
+.forecastImg {
+    text-align: center;
+    width: 100%;
+}
+
+.active {
+    color: #fcf9f4;
+    cursor: default;
+    text-decoration: none;
+}
+
+.active:hover {
+    color: black;
 }
 
 .content {
@@ -55,19 +70,26 @@ ul {
 }
 
 .hostedByLink {
-    color: #8b9092;
+    color: #251f47;
     transition: all 200ms ease-in-out;
 }
 
 .hostedByLink:hover {
-    color: #251f47;
+    color: #fcf9f4;
 }
 
+.icon {
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+    text-align: center;
+}
 
 .nightButton {
     color: #fcf9f4;
     background-color: #404e7c;
-    border: solid 1px #fcf9f4;
+    border: solid 1px #404e7c;
+    border-radius: 10px;
     transition: all 200ms ease-in-out;
 }
 
@@ -83,6 +105,34 @@ ul {
     font-family: "Quicksand", sans-serif;
 }
 
+.weather-forecast {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.weather-forecast-weekday {
+    font-size: 25;
+    font-weight: 900;
+    text-align: center;
+}
+
+.weather-forecast-temperature {
+    font-size: 16px;
+    text-align: center;
+}
+
+.weather-forecast-temperature-min {
+    opacity: 0.5;
+    text-align: center;
+}
+
 #city-name {
     font-size: 34px;
 }
+
+#fahrenheit-switch,
+#celcius-switch {
+    font-size: 15px;
+}
+
+;
