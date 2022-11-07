@@ -35,6 +35,10 @@ ul {
     text-decoration: none;
 }
 
+.active:hover {
+    color: black;
+}
+
 .content {
     max-width: 800px;
     margin: 0 auto;
@@ -106,4 +110,9 @@ ul {
 #city-name {
     font-size: 34px;
 }
+
+#fahrenheit-switch,
+#celcius-switch {
+    font-size: 15px;
+};
 
