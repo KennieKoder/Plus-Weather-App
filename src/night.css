@@ -30,6 +30,7 @@ ul {
     list-style: none;
     text-align: left;
     padding-left: 0px;
+    text-transform: capitalize;
 }
 
 .forecastImg {
@@ -90,6 +91,7 @@ ul {
     background-color: #404e7c;
     border: solid 1px #404e7c;
     border-radius: 10px;
+    font-weight: 900;
     transition: all 200ms ease-in-out;
 }
 

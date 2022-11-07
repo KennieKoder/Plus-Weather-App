@@ -68,6 +68,7 @@ ul {
     background-color: #ea7659;
     border: solid 1px rgb(38, 38, 38);
     border-radius: 10px;
+    font-weight: 900;
     transition: all 200ms ease-in-out;
 }
 
