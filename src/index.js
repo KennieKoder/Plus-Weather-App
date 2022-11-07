@@ -278,7 +278,25 @@ let iconCodePathConverter = {
 
 
 
+
 let celciusTemp = null;
+
+
+//Toggle StyleSheet
+
+function ToggleTheme(event) {
+  event.preventDefault();
+
+  console.log(`working`);
+  
+  let theme = document.querySelector("#theme");
+  if (theme.getAttribute(`href`) === `src/day.css`) {
+    theme.setAttribute(`href`, `src/night.css`);
+  } else {theme.setAttribute(`href`, `src/day.css`)}
+};
+
+let toggleThemeButton = document.getElementById("#theme-button");
+toggleThemeButton.addEventListener("click", ToggleTheme);
 
 //Get current date and time
 

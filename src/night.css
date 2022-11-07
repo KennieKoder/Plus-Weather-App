@@ -86,7 +86,7 @@ ul {
 }
 
 .nightButton {
-    color: #fcf9f4;
+    color: #151627;
     background-color: #404e7c;
     border: solid 1px #404e7c;
     border-radius: 10px;
@@ -134,5 +134,3 @@ ul {
 #celcius-switch {
     font-size: 15px;
 }
-
-;
